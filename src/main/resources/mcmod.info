@@ -1,0 +1,15 @@
+[
+  {
+    "modid": "autobridge",
+    "name": "AutoBridge",
+    "description": "Legit auto-sneak bridging assist for Minecraft 1.8.9. Automatically sneaks at block edges so you don't fall while ninja-bridging. Toggle with a configurable keybind.",
+    "version": "1.0.0",
+    "mcversion": "1.8.9",
+    "url": "",
+    "authorList": ["You"],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
