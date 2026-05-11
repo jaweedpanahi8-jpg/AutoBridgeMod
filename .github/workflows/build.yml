@@ -19,16 +19,28 @@ jobs:
 
       - name: Install Gradle 2.14
         run: |
-          wget https://services.gradle.org/distributions/gradle-2.14-bin.zip
-          unzip gradle-2.14-bin.zip
-          echo "$PWD/gradle-2.14/bin" >> $GITHUB_PATH
+          wget -q https://services.gradle.org/distributions/gradle-2.14-bin.zip
+          unzip -q gradle-2.14-bin.zip -d $HOME
+          echo "$HOME/gradle-2.14/bin" >> $GITHUB_PATH
+
+      - name: Generate Gradle wrapper
+        run: |
+          gradle wrapper --gradle-version=2.14
+          chmod +x gradlew
+
+      - name: Cache Forge dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.gradle/caches
+          key: forge-1.8.9-${{ hashFiles('build.gradle') }}
 
       - name: Setup Forge workspace
-        run: gradle setupDecompWorkspace --no-daemon
-        timeout-minutes: 20
+        run: ./gradlew setupDecompWorkspace --no-daemon --stacktrace
+        timeout-minutes: 25
 
       - name: Build jar
-        run: gradle build --no-daemon
+        run: ./gradlew build --no-daemon --stacktrace
+        timeout-minutes: 10
 
       - name: Upload jar
         uses: actions/upload-artifact@v4
