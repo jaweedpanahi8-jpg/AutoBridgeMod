@@ -37,8 +37,7 @@ processResources {
 jar {
     manifest {
         attributes(
-            'FMLCorePluginContainsFMLMod': 'true',
-            'FMLCorePlugin': ''
+            'FMLCorePluginContainsFMLMod': 'false'
         )
     }
 }
