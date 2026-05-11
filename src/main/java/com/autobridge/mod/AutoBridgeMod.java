@@ -5,9 +5,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = AutoBridgeMod.MODID, version = AutoBridgeMod.VERSION, name = AutoBridgeMod.NAME)
+@Mod(modid = AutoBridgeMod.MODID, version = AutoBridgeMod.VERSION, name = AutoBridgeMod.NAME, acceptedMinecraftVersions = "[1.8.9]")
 public class AutoBridgeMod {
-
     public static final String MODID = "autobridge";
     public static final String VERSION = "1.0.0";
     public static final String NAME = "AutoBridge";
